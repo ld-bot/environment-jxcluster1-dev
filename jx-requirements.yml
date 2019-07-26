@@ -1,17 +1,22 @@
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
-  project: ""
+  clusterName: jxcluster1
+  environmentGitOwner: ldon-dev-org
+  gitKind: github
+  gitName: github
+  gitServer: https://github.com
+  namespace: jx
+  project: ldonley
   provider: gke
-  zone: ""
-gitops: true
+  zone: us-east1-b
 environments:
 - key: dev
 - key: staging
 - key: production
+gitops: true
 ingress:
-  domain: ""
+  domain: 34.74.73.5.nip.io
   externalDNS: false
+  namespaceSubDomain: -jx.
   tls:
     email: ""
     enabled: false
@@ -21,13 +26,13 @@ secretStorage: vault
 storage:
   logs:
     enabled: true
-    url: ""
+    url: gs://jxcluster1-logs-86403f12-b41a-4c8d-be48-16d6a0218e29
   reports:
     enabled: true
-    url: ""
+    url: gs://jxcluster1-reports-05426b7f-9205-4635-890d-42466520dfd3
   repository:
     enabled: true
-    url: ""
+    url: gs://jxcluster1-repository-37da4afc-9589-4f37-9c11-f6b8495c6
 versionStream:
   ref: master
   url: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git
